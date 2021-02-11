@@ -1,11 +1,13 @@
 <?php
 
+#本ファイルのパスを名前として定義
 namespace AppBundle\Controller;
 
 #use文で他のファイルのclassにアクセスする
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+#Symfony/.../Controllerのメンバや処理内容を継承
 class ConcertController extends Controller
 {
     #指定のURLがリクエストされる
@@ -18,12 +20,15 @@ class ConcertController extends Controller
      */
     public function indexAction()
     {
-        $concertList = [ #連想配列を定義
+        #連想配列を定義
+        $concertList = [
             [
                 'date' => '2015年5月3日',
                 'time' => '14:00',
                 'place' => '東京文化会館(満席)',
-                'available' => false, #予測可能フラグを立てて、表示を分岐させる
+
+                #予測可能フラグを立てて、表示を分岐させる
+                'available' => false,
             ],
             [
                 'date' => '2015年7月12日',

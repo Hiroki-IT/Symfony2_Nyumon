@@ -4,15 +4,22 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+#Doctrineによるマッピングは、本来『@Table()』である。
+#しかし、SymfonyによるValidationのアノテーション（@NotBlank()）と区別するために、『as』で名前を付けている。
+
 /**
  * BlogArticle
  *
+ * #blog_articleテーブルとマッピング
  * @ORM\Table(name="blog_article")
+ *
+ * #対応するRepositoryを指定
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogArticleRepository") #EntityファイルのRepository変数="Repositoryパス"で、Entityに対応するRepositoryを設定。
  */
 class BlogArticle
 {
     /**
+     * #変数の型を定義
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -22,6 +29,7 @@ class BlogArticle
     private $id;
 
     /**
+     * #変数の型を宣言
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100)
@@ -36,6 +44,7 @@ class BlogArticle
     private $targetDate;
 
     /**
+     * #変数の型を宣言
      * @var string
      *
      * @ORM\Column(name="content", type="text")
@@ -46,6 +55,7 @@ class BlogArticle
     /**
      * Get id
      *
+     * #返り値の型を宣言
      * @return int
      */
     public function getId()
